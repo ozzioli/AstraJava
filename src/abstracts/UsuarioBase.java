@@ -13,11 +13,14 @@ public abstract class UsuarioBase {
 
     // ── Construtores
 
-    public UsuarioBase() {
+    public UsuarioBase(int id, String nome, String email, String senha, String dataCadastro) {
+        this.id = getId() + 1; // OBS: preciso fazer um jeito de subir 1 id a cada usuario que e criado (ainda nao implementado)
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.dataCadastro = dataCadastro;
     }
 
-    public UsuarioBase(int id, String nome, String email, String senha, String dataCadastro) {
-    }
     // ── Método abstrato (sobrescrito por cada subclasse) ──────────────────────
 
      // Exibe no console as informações específicas do perfil de cada tipo de usuário.
@@ -27,20 +30,45 @@ public abstract class UsuarioBase {
 
     // gets e sets
 
-    public int getId() { return id; }
-    public void setId(int id) { }
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { }
+    public String getNome() {
+        return nome;
+    }
 
-    public String getSenha() { return senha; }
-    public void setSenha(String senha) { }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public String getDataCadastro() { return dataCadastro; }
-    public void setDataCadastro(String dataCadastro) { }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(String dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
 
     // toString
 

@@ -6,7 +6,7 @@ package model;
 public class AvaliacaoAptidao {
 
     // ── Atributos
-    private int    id;
+    private int id;
     private int[]  respostas; // array com todas as respostas brutas
     private double scoreFisico; // sub-score categoria física (peso 40%)
     private double scoreCardiovascular; // sub-score categoria cardiovascular (peso 35%)
