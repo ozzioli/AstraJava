@@ -3,6 +3,8 @@ package model;
   // Armazena as respostas do questionário de aptidão e o score calculado.
   // Gerada quando o turista conclui o questionário.
 
+import java.util.Arrays;
+
 public class AvaliacaoAptidao {
 
     // ── Atributos
@@ -96,6 +98,16 @@ public class AvaliacaoAptidao {
 
     @Override
     public String toString() {
-        return null;
+        return "AvaliacaoAptidao{" +
+                "id=" + id +
+                ", respostas=" + Arrays.toString(respostas) +
+                ", scoreFisico=" + scoreFisico +
+                ", scoreCardiovascular=" + scoreCardiovascular +
+                ", scorePsicologico=" + scorePsicologico +
+                ", scoreTotal=" + scoreTotal +
+                ", classificacao=" + classificacao +
+                ", dataRealizacao='" + dataRealizacao + '\'' +
+                '}';
     }
 }
+
