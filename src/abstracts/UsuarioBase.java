@@ -18,7 +18,6 @@ public abstract class UsuarioBase {
 
     public UsuarioBase(int id, String nome, String email, String senha, String dataCadastro) {
     }
-
     // ── Método abstrato (sobrescrito por cada subclasse) ──────────────────────
 
      // Exibe no console as informações específicas do perfil de cada tipo de usuário.
