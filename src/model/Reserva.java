@@ -35,28 +35,66 @@ public class Reserva {
 
     // ── Getters e Setters ─────────────────────────────────────────────────────
 
-    public int getId() { return id; }
-    public void setId(int id) { }
+    public int getId() {
+        return id;
+    }
 
-    public Turista getTurista() { return turista; }
-    public void setTurista(Turista turista) { }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public PacoteEspacial getPacote() { return pacote; }
-    public void setPacote(PacoteEspacial pacote) { }
+    public Turista getTurista() {
+        return turista;
+    }
 
-    public String getDataReserva() { return dataReserva; }
-    public void setDataReserva(String dataReserva) { }
+    public void setTurista(Turista turista) {
+        this.turista = turista;
+    }
 
-    public boolean isAtiva() { return ativa; }
-    public void setAtiva(boolean ativa) { }
+    public PacoteEspacial getPacote() {
+        return pacote;
+    }
 
-    public TipoReembolso getTipoReembolso() { return tipoReembolso; }
-    public void setTipoReembolso(TipoReembolso tipoReembolso) { }
+    public void setPacote(PacoteEspacial pacote) {
+        this.pacote = pacote;
+    }
+
+    public String getDataReserva() {
+        return dataReserva;
+    }
+
+    public void setDataReserva(String dataReserva) {
+        this.dataReserva = dataReserva;
+    }
+
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
+    }
+
+    public TipoReembolso getTipoReembolso() {
+        return tipoReembolso;
+    }
+
+    public void setTipoReembolso(TipoReembolso tipoReembolso) {
+        this.tipoReembolso = tipoReembolso;
+    }
+
 
     // ── toString ──────────────────────────────────────────────────────────────
 
     @Override
     public String toString() {
-        return null;
+        return "Reserva{" +
+                "id=" + id +
+                ", turista=" + turista +
+                ", pacote=" + pacote +
+                ", dataReserva='" + dataReserva + '\'' +
+                ", ativa=" + ativa +
+                ", tipoReembolso=" + tipoReembolso +
+                '}';
     }
 }

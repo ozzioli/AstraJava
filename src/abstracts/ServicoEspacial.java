@@ -25,16 +25,30 @@ public abstract class ServicoEspacial {
 
     // ── Getters e Setters
 
-    public String getNomeServico() { return nomeServico; }
-    public void setNomeServico(String nomeServico) { }
+    public String getNomeServico() {
+        return nomeServico;
+    }
 
-    public String getDescricao() { return descricao; }
-    public void setDescricao(String descricao) { }
+    public void setNomeServico(String nomeServico) {
+        this.nomeServico = nomeServico;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
 
     // ── toString
 
     @Override
     public String toString() {
-        return null;
+        return "ServicoEspacial{" +
+                "nomeServico='" + nomeServico + '\'' +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
 }
