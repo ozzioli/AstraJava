@@ -4,10 +4,9 @@ import abstracts.UsuarioBase;
 import interfaces.Avaliavel;
 import interfaces.Notificavel;
 
-/**
- * Representa um turista espacial no sistema ASTRA.
- * Estende UsuarioBase e implementa Avaliavel e Notificavel.
- */
+ // Representa um turista espacial no sistema ASTRA.
+ // Estende UsuarioBase e implementa Avaliavel e Notificavel.
+
 public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
 
     // ── Atributos específicos do Turista ──────────────────────────────────────

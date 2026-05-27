@@ -1,8 +1,6 @@
 package model;
 
-/**
- * Representa os possíveis estados de um turista no sistema ASTRA.
- */
+ // Representa os possíveis estados de um turista no sistema ASTRA.
 public enum StatusTurista {
 
     CADASTRADO,       // recém-cadastrado, ainda não avaliado
@@ -10,4 +8,5 @@ public enum StatusTurista {
     APROVADO,         // médico aprovou — pode reservar pacotes
     REPROVADO,        // médico reprovou — precisa se preparar mais
     INAPTO            // score abaixo de 60 — não avança para médico
+
 }
