@@ -17,37 +17,80 @@ public class AvaliacaoAptidao {
 
     // ── Construtores
 
-    public AvaliacaoAptidao() {
-    }
+
 
     public AvaliacaoAptidao(int id, int[] respostas, String dataRealizacao) {
+        this.id=id;
+        this.respostas=respostas;
+        this.dataRealizacao=dataRealizacao;
     }
 
     // ── Getters e Setters
 
-    public int getId() { return id; }
-    public void setId(int id) { }
+    public int getId() {
+        return id;
+    }
 
-    public int[] getRespostas() { return respostas; }
-    public void setRespostas(int[] respostas) { }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public double getScoreFisico() { return scoreFisico; }
-    public void setScoreFisico(double scoreFisico) { }
+    public int[] getRespostas() {
+        return respostas;
+    }
 
-    public double getScoreCardiovascular() { return scoreCardiovascular; }
-    public void setScoreCardiovascular(double scoreCardiovascular) { }
+    public void setRespostas(int[] respostas) {
+        this.respostas = respostas;
+    }
 
-    public double getScorePsicologico() { return scorePsicologico; }
-    public void setScorePsicologico(double scorePsicologico) { }
+    public double getScoreFisico() {
+        return scoreFisico;
+    }
 
-    public double getScoreTotal() { return scoreTotal; }
-    public void setScoreTotal(double scoreTotal) { }
+    public void setScoreFisico(double scoreFisico) {
+        this.scoreFisico = scoreFisico;
+    }
 
-    public ClassificacaoScore getClassificacao() { return classificacao; }
-    public void setClassificacao(ClassificacaoScore classificacao) { }
+    public double getScoreCardiovascular() {
+        return scoreCardiovascular;
+    }
 
-    public String getDataRealizacao() { return dataRealizacao; }
-    public void setDataRealizacao(String dataRealizacao) { }
+    public void setScoreCardiovascular(double scoreCardiovascular) {
+        this.scoreCardiovascular = scoreCardiovascular;
+    }
+
+    public double getScorePsicologico() {
+        return scorePsicologico;
+    }
+
+    public void setScorePsicologico(double scorePsicologico) {
+        this.scorePsicologico = scorePsicologico;
+    }
+
+    public double getScoreTotal() {
+        return scoreTotal;
+    }
+
+    public void setScoreTotal(double scoreTotal) {
+        this.scoreTotal = scoreTotal;
+    }
+
+    public ClassificacaoScore getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(ClassificacaoScore classificacao) {
+        this.classificacao = classificacao;
+    }
+
+    public String getDataRealizacao() {
+        return dataRealizacao;
+    }
+
+    public void setDataRealizacao(String dataRealizacao) {
+        this.dataRealizacao = dataRealizacao;
+    }
+
 
     // ── toString
 
