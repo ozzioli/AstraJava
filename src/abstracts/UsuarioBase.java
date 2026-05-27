@@ -74,6 +74,12 @@ public abstract class UsuarioBase {
 
     @Override
     public String toString() {
-        return null;
+        return "UsuarioBase{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", dataCadastro='" + dataCadastro + '\'' +
+                '}';
     }
 }
