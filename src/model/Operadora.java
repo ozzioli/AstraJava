@@ -1,6 +1,7 @@
 package model;
 
 import abstracts.UsuarioBase;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,54 +11,54 @@ import java.util.List;
 public class Operadora extends UsuarioBase {
 
     // ── Atributos específicos da Operadora ────────────────────────────────────
-    private String            licenca;
+    private String               licenca;
     private List<PacoteEspacial> pacotes;
 
     // ── Construtores ─────────────────────────────────────────────────────────
 
     public Operadora() {
+        this.pacotes = new ArrayList<>();
     }
 
     public Operadora(int id, String nome, String email, String senha,
                      String dataCadastro, String licenca) {
+        super(id, nome, email, senha, dataCadastro);
+        this.licenca = licenca;
+        this.pacotes = new ArrayList<>();
     }
 
     // ── Implementação de UsuarioBase ──────────────────────────────────────────
 
-    /**
-     * Exibe perfil da operadora: nome, licença e quantidade de pacotes ativos.
-     */
     @Override
     public void exibirPerfil() {
+        // TODO: implementar exibição no console
     }
 
     // ── Métodos de domínio ────────────────────────────────────────────────────
 
-    /**
-     * Adiciona um novo pacote espacial ao catálogo da operadora.
-     * @param pacote pacote a ser cadastrado
-     */
     public void cadastrarPacote(PacoteEspacial pacote) {
+        // TODO: implementar cadastro de pacote
     }
 
-    /**
-     * Lista todos os pacotes cadastrados pela operadora.
-     */
     public void listarPacotes() {
+        // TODO: implementar listagem de pacotes
     }
 
     // ── Getters e Setters ─────────────────────────────────────────────────────
 
     public String getLicenca() { return licenca; }
-    public void setLicenca(String licenca) { }
+    public void setLicenca(String licenca) { this.licenca = licenca; }
 
     public List<PacoteEspacial> getPacotes() { return pacotes; }
-    public void setPacotes(List<PacoteEspacial> pacotes) { }
+    public void setPacotes(List<PacoteEspacial> pacotes) { this.pacotes = pacotes; }
 
     // ── toString ──────────────────────────────────────────────────────────────
 
     @Override
     public String toString() {
-        return null;
+        return "Operadora{id=" + getId() +
+                ", nome='" + getNome() +
+                "', licenca='" + licenca +
+                "', pacotes=" + (pacotes != null ? pacotes.size() : 0) + "}";
     }
 }

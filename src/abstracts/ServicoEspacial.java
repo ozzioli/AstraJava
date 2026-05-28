@@ -14,6 +14,8 @@ public abstract class ServicoEspacial {
     }
 
     public ServicoEspacial(String nomeServico, String descricao) {
+        this.nomeServico = nomeServico;
+        this.descricao   = descricao;
     }
 
     // ── Método abstrato

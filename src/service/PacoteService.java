@@ -10,42 +10,31 @@ import java.util.List;
 public class PacoteService {
 
     // ── Atributo ──────────────────────────────────────────────────────────────
-    private List<PacoteEspacial> pacotes; // lista em memória de todos os pacotes
+    private List<PacoteEspacial> pacotes;
 
     // ── Construtor ────────────────────────────────────────────────────────────
 
     public PacoteService(List<PacoteEspacial> pacotes) {
+        this.pacotes = pacotes;
     }
 
     // ── Métodos de negócio ────────────────────────────────────────────────────
 
-    /**
-     * Lista todos os pacotes ativos disponíveis para reserva.
-     */
     public void listarPacotesAtivos() {
+        // TODO: filtrar pacotes com ativo=true e exibir no console
     }
 
-    /**
-     * Filtra e exibe pacotes por destino.
-     * @param destino nome ou trecho do destino buscado
-     */
     public void filtrarPorDestino(String destino) {
+        // TODO: filtrar por destino contendo a string e exibir
     }
 
-    /**
-     * Busca um pacote pelo seu ID.
-     * @param id identificador do pacote
-     * @return PacoteEspacial encontrado ou null
-     */
     public PacoteEspacial buscarPorId(int id) {
+        // TODO: percorrer lista e retornar o pacote com o id correspondente
         return null;
     }
 
-    /**
-     * Cadastra um novo pacote na lista em memória.
-     * @param pacote pacote a ser adicionado
-     */
     public void cadastrarPacote(PacoteEspacial pacote) {
+        // TODO: adicionar pacote na lista
     }
 
     // ── Getter ────────────────────────────────────────────────────────────────

@@ -20,50 +20,46 @@ public class Medico extends UsuarioBase implements Notificavel {
 
     public Medico(int id, String nome, String email, String senha,
                   String dataCadastro, String crm, String especialidade) {
+        super(id, nome, email, senha, dataCadastro);
+        this.crm          = crm;
+        this.especialidade = especialidade;
     }
 
     // ── Implementação de UsuarioBase ──────────────────────────────────────────
 
-    /**
-     * Exibe perfil do médico: nome, CRM e especialidade.
-     */
     @Override
     public void exibirPerfil() {
+        // TODO: implementar exibição no console
     }
 
     // ── Implementação de Notificavel ──────────────────────────────────────────
 
-    /**
-     * Exibe uma notificação para o médico no console.
-     */
     @Override
     public void receberNotificacao(String mensagem) {
+        // TODO: implementar exibição de notificação
     }
 
     // ── Métodos de domínio ────────────────────────────────────────────────────
 
-    /**
-     * Aprova ou reprova um turista após análise do questionário.
-     * Atualiza o status do turista e registra a justificativa.
-     * @param turista   turista a ser avaliado
-     * @param aprovado  true = aprovado | false = reprovado
-     * @param justificativa texto com o parecer médico
-     */
     public void avaliarCandidato(Turista turista, boolean aprovado, String justificativa) {
+        // TODO: implementar aprovação/reprovação
     }
 
     // ── Getters e Setters ─────────────────────────────────────────────────────
 
     public String getCrm() { return crm; }
-    public void setCrm(String crm) { }
+    public void setCrm(String crm) { this.crm = crm; }
 
     public String getEspecialidade() { return especialidade; }
-    public void setEspecialidade(String especialidade) { }
+    public void setEspecialidade(String especialidade) { this.especialidade = especialidade; }
 
     // ── toString ──────────────────────────────────────────────────────────────
 
     @Override
     public String toString() {
-        return null;
+        return "Medico{id=" + getId() +
+                ", nome='" + getNome() +
+                "', crm='" + crm +
+                "', especialidade='" + especialidade + "'}";
     }
 }

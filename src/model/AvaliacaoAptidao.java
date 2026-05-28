@@ -23,9 +23,9 @@ public class AvaliacaoAptidao {
     }
 
     public AvaliacaoAptidao(int id, int[] respostas, String dataRealizacao) {
-        this.id=id;
-        this.respostas=respostas;
-        this.dataRealizacao=dataRealizacao;
+        this.id  = id;
+        this.respostas = respostas;
+        this.dataRealizacao = dataRealizacao;
     }
 
     // ── Getters e Setters

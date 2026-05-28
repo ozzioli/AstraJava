@@ -9,7 +9,6 @@ import java.util.List;
 
 /**
  * Service responsável pela autenticação de usuários no sistema ASTRA.
- * Valida email e senha contra as listas em memória e retorna o tipo de perfil.
  */
 public class AutenticacaoService {
 
@@ -23,37 +22,31 @@ public class AutenticacaoService {
     public AutenticacaoService(List<Turista> turistas,
                                List<Medico> medicos,
                                List<Operadora> operadoras) {
+        this.turistas   = turistas;
+        this.medicos    = medicos;
+        this.operadoras = operadoras;
     }
 
-    // ── Métodos de autenticação ───────────────────────────────────────────────
+    // ── Métodos de negócio ────────────────────────────────────────────────────
 
-    /**
-     * Autentica um usuário pelo email e senha informados.
-     * Verifica nas três listas (turistas, médicos, operadoras).
-     * @param email email informado
-     * @param senha senha informada
-     * @return objeto UsuarioBase autenticado ou null se não encontrado
-     */
     public UsuarioBase autenticar(String email, String senha) {
+        // TODO: buscar nas 3 listas e retornar o usuário encontrado
         return null;
     }
 
-    /**
-     * Retorna o tipo de perfil do usuário autenticado como String.
-     * @param usuario usuário já autenticado
-     * @return "TURISTA", "MEDICO", "OPERADORA" ou "DESCONHECIDO"
-     */
     public String getTipoPerfil(UsuarioBase usuario) {
+        // TODO: usar instanceof para retornar "TURISTA", "MEDICO" ou "OPERADORA"
         return null;
     }
 
-    /**
-     * Verifica se um email já está cadastrado em qualquer lista.
-     * Usado no cadastro para evitar duplicatas.
-     * @param email email a verificar
-     * @return true se já existe
-     */
     public boolean emailJaCadastrado(String email) {
+        // TODO: verificar nas 3 listas se o email já existe
         return false;
     }
+
+    // ── Getters ───────────────────────────────────────────────────────────────
+
+    public List<Turista> getTuristas() { return turistas; }
+    public List<Medico> getMedicos() { return medicos; }
+    public List<Operadora> getOperadoras() { return operadoras; }
 }

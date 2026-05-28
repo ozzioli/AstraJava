@@ -84,13 +84,9 @@ public class PlanoPreparacao {
 
     @Override
     public String toString() {
-        return "PlanoPreparacao{" +
-                "id=" + id +
-                ", treinos=" + treinos +
-                ", orientacoesNutricionais=" + orientacoesNutricionais +
-                ", dataInicio='" + dataInicio + '\'' +
-                ", dataLimite='" + dataLimite + '\'' +
-                ", observacoes='" + observacoes + '\'' +
-                '}';
+        return "PlanoPreparacao{id=" + id +
+                ", dataInicio='" + dataInicio +
+                "', dataLimite='" + dataLimite +
+                "', treinos=" + (treinos != null ? treinos.size() : 0) + " atividade(s)}";
     }
 }

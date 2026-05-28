@@ -9,13 +9,13 @@ import interfaces.Reservavel;
 public class PacoteEspacial implements Reservavel {
 
     // ── Atributos ────────────────────────────────────────────────────────────
-    private int    id;
-    private String destino;
-    private double preco;
-    private int    vagasTotais;
-    private int    vagasDisponiveis;
-    private String dataViagem;          // formato: dd/MM/yyyy
-    private String descricao;
+    private int     id;
+    private String  destino;
+    private double  preco;
+    private int     vagasTotais;
+    private int     vagasDisponiveis;
+    private String  dataViagem;
+    private String  descricao;
     private boolean ativo;
 
     // ── Construtores ─────────────────────────────────────────────────────────
@@ -25,70 +25,70 @@ public class PacoteEspacial implements Reservavel {
 
     public PacoteEspacial(int id, String destino, double preco,
                           int vagasTotais, String dataViagem, String descricao) {
+        this.id               = id;
+        this.destino          = destino;
+        this.preco            = preco;
+        this.vagasTotais      = vagasTotais;
+        this.vagasDisponiveis = vagasTotais;
+        this.dataViagem       = dataViagem;
+        this.descricao        = descricao;
+        this.ativo            = true;
     }
 
     // ── Implementação de Reservavel ───────────────────────────────────────────
 
-    /**
-     * Registra a reserva do turista neste pacote.
-     * Decrementa o número de vagas disponíveis.
-     * @param turista turista que deseja reservar
-     * @return Reserva criada
-     */
     @Override
     public Reserva reservar(Turista turista) {
+        // TODO: implementar reserva e decrementar vagas
         return null;
     }
 
-    /**
-     * Cancela uma reserva existente.
-     * Incrementa o número de vagas disponíveis.
-     * @param reserva reserva a ser cancelada
-     */
     @Override
     public void cancelar(Reserva reserva) {
+        // TODO: implementar cancelamento e incrementar vagas
     }
 
     // ── Métodos de domínio ────────────────────────────────────────────────────
 
-    /**
-     * Verifica se ainda há vagas disponíveis no pacote.
-     * @return true se há pelo menos uma vaga
-     */
     public boolean temVagaDisponivel() {
+        // TODO: implementar verificação de vagas
         return false;
     }
 
     // ── Getters e Setters ─────────────────────────────────────────────────────
 
     public int getId() { return id; }
-    public void setId(int id) { }
+    public void setId(int id) { this.id = id; }
 
     public String getDestino() { return destino; }
-    public void setDestino(String destino) { }
+    public void setDestino(String destino) { this.destino = destino; }
 
     public double getPreco() { return preco; }
-    public void setPreco(double preco) { }
+    public void setPreco(double preco) { this.preco = preco; }
 
     public int getVagasTotais() { return vagasTotais; }
-    public void setVagasTotais(int vagasTotais) { }
+    public void setVagasTotais(int vagasTotais) { this.vagasTotais = vagasTotais; }
 
     public int getVagasDisponiveis() { return vagasDisponiveis; }
-    public void setVagasDisponiveis(int vagasDisponiveis) { }
+    public void setVagasDisponiveis(int vagasDisponiveis) { this.vagasDisponiveis = vagasDisponiveis; }
 
     public String getDataViagem() { return dataViagem; }
-    public void setDataViagem(String dataViagem) { }
+    public void setDataViagem(String dataViagem) { this.dataViagem = dataViagem; }
 
     public String getDescricao() { return descricao; }
-    public void setDescricao(String descricao) { }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
     public boolean isAtivo() { return ativo; }
-    public void setAtivo(boolean ativo) { }
+    public void setAtivo(boolean ativo) { this.ativo = ativo; }
 
     // ── toString ──────────────────────────────────────────────────────────────
 
     @Override
     public String toString() {
-        return null;
+        return "PacoteEspacial{id=" + id +
+                ", destino='" + destino +
+                "', preco=" + preco +
+                ", vagasDisponiveis=" + vagasDisponiveis + "/" + vagasTotais +
+                ", dataViagem='" + dataViagem + "'}";
     }
 }

@@ -19,6 +19,11 @@ public abstract class UsuarioBase {
     }
 
     public UsuarioBase(int id, String nome, String email, String senha, String dataCadastro) {
+        this.id           = id;
+        this.nome         = nome;
+        this.email        = email;
+        this.senha        = senha;
+        this.dataCadastro = dataCadastro;
     }
 
     // ── Método abstrato (sobrescrito por cada subclasse) ──────────────────────

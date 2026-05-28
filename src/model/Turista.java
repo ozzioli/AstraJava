@@ -10,13 +10,13 @@ import interfaces.Notificavel;
 public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
 
     // ── Atributos específicos do Turista
-    private int               idade;
-    private String            cpf;
-    private double            scoreAtual;
-    private StatusTurista     statusAptidao;
-    private AvaliacaoAptidao  avaliacao;
-    private PlanoPreparacao   planoPreparacao;
-    private String            justificativaMedica; // preenchida pelo médico ao reprovar
+    private int idade;
+    private String cpf;
+    private double scoreAtual;
+    private StatusTurista statusAptidao;
+    private AvaliacaoAptidao avaliacao;
+    private PlanoPreparacao planoPreparacao;
+    private String justificativaMedica; // preenchida pelo médico ao reprovar
 
     // ── Construtores
 
@@ -25,6 +25,11 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
 
     public Turista(int id, String nome, String email, String senha,
                    String dataCadastro, int idade, String cpf) {
+        super(id, nome, email, senha, dataCadastro);
+        this.idade         = idade;
+        this.cpf           = cpf;
+        this.scoreAtual    = 0;
+        this.statusAptidao = StatusTurista.CADASTRADO;
     }
 
     // ── Implementação de UsuarioBase
@@ -119,15 +124,12 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
 
     @Override
     public String toString() {
-        return "Turista{" +
-                "idade=" + idade +
-                ", cpf='" + cpf + '\'' +
-                ", scoreAtual=" + scoreAtual +
-                ", statusAptidao=" + statusAptidao +
-                ", avaliacao=" + avaliacao +
-                ", planoPreparacao=" + planoPreparacao +
-                ", justificativaMedica='" + justificativaMedica + '\'' +
-                '}';
+        return "Turista{id=" + getId() +
+                ", nome='" + getNome() +
+                "', email='" + getEmail() +
+                "', idade=" + idade +
+                ", score=" + scoreAtual +
+                ", status=" + statusAptidao + "}";
     }
 }
 
