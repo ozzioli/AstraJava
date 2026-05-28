@@ -19,7 +19,8 @@ public class AvaliacaoAptidao {
 
     // ── Construtores
 
-
+    public AvaliacaoAptidao() {
+    }
 
     public AvaliacaoAptidao(int id, int[] respostas, String dataRealizacao) {
         this.id=id;

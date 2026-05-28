@@ -17,6 +17,10 @@ public class PlanoPreparacao {
 
     // ── Construtores
 
+    public PlanoPreparacao() {
+
+    }
+
     public PlanoPreparacao(int id, List<String> treinos, List<String> orientacoesNutricionais,
                            String dataInicio, String dataLimite) {
         this.id = getId() +1; // mudar depois

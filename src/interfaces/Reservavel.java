@@ -3,10 +3,9 @@ package interfaces;
 import model.Reserva;
 import model.Turista;
 
-/**
- * Interface para entidades que podem ser reservadas e canceladas.
- * Implementada por: PacoteEspacial
- */
+ // Interface para entidades que podem ser reservadas e canceladas.
+ // Implementada por: PacoteEspacial
+
 public interface Reservavel {
 
      // Registra a reserva de um turista no pacote.

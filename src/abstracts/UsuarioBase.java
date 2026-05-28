@@ -1,34 +1,35 @@
 package abstracts;
 
- // Classe abstrata base para todos os tipos de usuário do sistema ASTRA.
- // Contém os atributos e comportamentos comuns a Turista, Medico e Operadora.
-
+/**
+ * Classe abstrata base para todos os tipos de usuário do sistema ASTRA.
+ * Contém os atributos e comportamentos comuns a Turista, Medico e Operadora.
+ */
 public abstract class UsuarioBase {
 
-    private int id;
+    // ── Atributos ────────────────────────────────────────────────────────────
+    private int    id;
     private String nome;
     private String email;
     private String senha;
     private String dataCadastro;
 
-    // ── Construtores
+    // ── Construtores ─────────────────────────────────────────────────────────
+
+    public UsuarioBase() {
+    }
 
     public UsuarioBase(int id, String nome, String email, String senha, String dataCadastro) {
-        this.id = getId() + 1; // OBS: preciso fazer um jeito de subir 1 id a cada usuario que e criado (ainda nao implementado)
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.dataCadastro = dataCadastro;
     }
 
     // ── Método abstrato (sobrescrito por cada subclasse) ──────────────────────
 
-     // Exibe no console as informações específicas do perfil de cada tipo de usuário.
-     // Cada subclasse implementa com @Override.
-
+    /**
+     * Exibe no console as informações específicas do perfil de cada tipo de usuário.
+     * Cada subclasse implementa com @Override.
+     */
     public abstract void exibirPerfil();
 
-    // gets e sets
+    // ── Getters e Setters ─────────────────────────────────────────────────────
 
     public int getId() {
         return id;
@@ -70,7 +71,8 @@ public abstract class UsuarioBase {
         this.dataCadastro = dataCadastro;
     }
 
-    // toString
+
+    // ── toString ──────────────────────────────────────────────────────────────
 
     @Override
     public String toString() {
