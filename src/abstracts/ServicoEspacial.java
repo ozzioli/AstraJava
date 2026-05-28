@@ -10,10 +10,10 @@ public abstract class ServicoEspacial {
 
     // ── Construtores
 
-    public ServicoEspacial(String nomeServico, String descricao ) {
-        this.nomeServico=nomeServico;
-        this.descricao=descricao;
+    public ServicoEspacial() {
+    }
 
+    public ServicoEspacial(String nomeServico, String descricao) {
     }
 
     // ── Método abstrato
