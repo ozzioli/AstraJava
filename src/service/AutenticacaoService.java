@@ -36,17 +36,17 @@ public class AutenticacaoService {
     public UsuarioBase autenticar(String email, String senha){
         // TODO: buscar nas 3 listas e retornar o usuário encontrado
         for (Turista t : turistas) {
-            if (t.getEmail().equals(email) || t.getSenha().equals(senha)) {
+            if (t.getEmail().equals(email) && t.getSenha().equals(senha)) {
                 return t;
             }
         }
         for (Medico m : medicos) {
-            if (m.getEmail().equals(email) || m.getSenha().equals(senha)) {
+            if (m.getEmail().equals(email) && m.getSenha().equals(senha)) {
                 return m;
             }
         }
         for (Operadora o : operadoras) {
-            if (o.getEmail().equals(email) || o.getSenha().equals(senha)) {
+            if (o.getEmail().equals(email) && o.getSenha().equals(senha)) {
                 return o;
             }
         }
@@ -69,6 +69,25 @@ public class AutenticacaoService {
 
     public boolean emailJaCadastrado(String email) {
         // TODO: verificar nas 3 listas se o email já existe
+
+        for (Turista turista : turistas) {
+            if (turista.getEmail().equals(email)) {
+                System.out.println("Email ja cadastrado!");
+                return true;
+            }
+        }
+        for (Medico medico : medicos) {
+            if (medico.getEmail().equals(email)) {
+                System.out.println("Email ja cadastrado!");
+                return true;
+            }
+        }
+        for (Operadora operadora : operadoras) {
+            if (operadora.getEmail().equals(email)) {
+                System.out.println("Email ja cadastrado!");
+                return true;
+            }
+        }
         return false;
     }
 
@@ -76,11 +95,13 @@ public class AutenticacaoService {
         System.out.println("Digite seu Nome");
         System.out.print(": ");
         String nomeTurista = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Digite seu Email");
         System.out.print(": ");
         String emailTurista = scanner.nextLine();
+        if (emailJaCadastrado(emailTurista)) {
+            return;
+        }
 
         System.out.println("Digite sua Senha");
         System.out.print(": ");
@@ -106,11 +127,13 @@ public class AutenticacaoService {
         System.out.println("Digite seu Nome");
         System.out.print(": ");
         String nomeMedico = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Digite seu Email");
         System.out.print(": ");
         String emailMedico = scanner.nextLine();
+        if (emailJaCadastrado(emailMedico)) {
+            return;
+        }
 
         System.out.println("Digite sua Senha");
         System.out.print(": ");
@@ -135,11 +158,14 @@ public class AutenticacaoService {
         System.out.println("Digite seu Nome");
         System.out.print(": ");
         String nomeOperadora = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Digite seu Email");
         System.out.print(": ");
         String emailOperadora = scanner.nextLine();
+        if (emailJaCadastrado(emailOperadora)) {
+            return;
+        }
+
 
         System.out.println("Digite sua Senha");
         System.out.print(": ");

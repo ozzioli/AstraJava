@@ -55,6 +55,7 @@ public class MenuPrincipal {
             System.out.println("1 - Login | 2 - Cadastro | 0 - Sair");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();
+            scanner.nextLine(); // limpa ENTER
             if (opcao == 1) {
                 UsuarioBase user = realizarLogin();
                 System.out.println(user);
@@ -66,6 +67,7 @@ public class MenuPrincipal {
                     System.out.println("1 - Cadastrar Turista | 2 - Cadastrar Medico | 2 - Cadastrar Operadora | 0 - Voltar");
                     System.out.print("Opcao: ");
                     opcao2 = scanner.nextInt();
+                    scanner.nextLine(); // limpa ENTER
 
                     if (opcao2 == 1) {
                         autenticacaoService.cadastroTurista(scanner);
@@ -98,7 +100,6 @@ public class MenuPrincipal {
         System.out.println("Digite o seu email");
         System.out.print(": ");
         String userEmail = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Digite a sua senha");
         System.out.print(": ");
@@ -118,7 +119,7 @@ public class MenuPrincipal {
             Turista user = (Turista) autenticacaoService.autenticar(email, senha);
 
             MenuTurista menuTurista = new MenuTurista(user,scanner, pacoteService, reservaService, scoreService, medicoService);
-            menuTurista.exibir();
+            menuTurista.exibir(scanner);
         };
 
         if (autenticacaoService.getTipoPerfil(usuario).equals("MEDICO")) {

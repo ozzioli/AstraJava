@@ -1,16 +1,19 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Representa a reserva de um turista em um pacote espacial.
  */
 public class Reserva {
 
     // ── Atributos ────────────────────────────────────────────────────────────
-    private int            id;
-    private Turista        turista;
+    private int id;
+    private Turista turista;
     private PacoteEspacial pacote;
-    private String         dataReserva;
-    private boolean        ativa;
+    private String dataReserva;
+    private boolean ativa;
     private TipoReembolso  tipoReembolso;
 
     // ── Construtores ─────────────────────────────────────────────────────────

@@ -1,6 +1,10 @@
 package model;
 
 import interfaces.Reservavel;
+import service.PacoteService;
+import util.DataUtil;
+
+import java.util.Scanner;
 
 /**
  * Representa um pacote de viagem espacial disponível no catálogo.
@@ -17,6 +21,7 @@ public class PacoteEspacial implements Reservavel {
     private String  dataViagem;
     private String  descricao;
     private boolean ativo;
+    private PacoteService pacoteService;
 
     // ── Construtores ─────────────────────────────────────────────────────────
 
@@ -40,7 +45,17 @@ public class PacoteEspacial implements Reservavel {
     @Override
     public Reserva reservar(Turista turista) {
         // TODO: implementar reserva e decrementar vagas
-        return null;
+        if (!temVagaDisponivel()) {
+            return null;
+        }
+
+        if (turista == null) {
+            return null;
+        }
+
+        this.vagasTotais--;
+        System.out.println("Vaga ocupada com sucesso!");
+        return new Reserva(0, turista, this, DataUtil.getDataAtual());
     }
 
     @Override
@@ -52,6 +67,12 @@ public class PacoteEspacial implements Reservavel {
 
     public boolean temVagaDisponivel() {
         // TODO: implementar verificação de vagas
+        if (this.vagasTotais > 0) {
+            return true;
+        }
+        if (this.vagasTotais <= 0) {
+            throw new IllegalStateException("Sem vagas disponíveis nesse pacote.");
+        }
         return false;
     }
 

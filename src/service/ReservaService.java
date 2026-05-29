@@ -2,8 +2,11 @@ package service;
 
 import model.PacoteEspacial;
 import model.Reserva;
+import model.StatusTurista;
 import model.Turista;
+import util.DataUtil;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 /**
@@ -24,6 +27,17 @@ public class ReservaService {
 
     public Reserva realizarReserva(Turista turista, PacoteEspacial pacote) {
         // TODO: validar status APROVADO, vagas e antecedência mínima (DataUtil)
+
+        if (turista.getStatusAptidao().equals(StatusTurista.APROVADO)) {
+            if (pacote.temVagaDisponivel()){
+                Reserva reserva = pacote.reservar(turista);
+                reservas.add(reserva);
+                System.out.println("Reserva feita com sucesso!");
+                return reserva;
+
+            }
+        }
+        System.out.println("Erro ao realizar reserva");
         return null;
     }
 

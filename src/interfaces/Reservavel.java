@@ -3,7 +3,9 @@ package interfaces;
 import model.Reserva;
 import model.Turista;
 
- // Interface para entidades que podem ser reservadas e canceladas.
+import java.util.Scanner;
+
+// Interface para entidades que podem ser reservadas e canceladas.
  // Implementada por: PacoteEspacial
 
 public interface Reservavel {
