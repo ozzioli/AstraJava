@@ -1,23 +1,27 @@
 package service;
 
 import abstracts.UsuarioBase;
+import app.MenuTurista;
 import model.Medico;
 import model.Operadora;
 import model.Turista;
 
 import java.util.List;
+import java.util.Scanner;
+
+import static util.DataUtil.getDataAtual;
 
 /**
  * Service responsável pela autenticação de usuários no sistema ASTRA.
  */
 public class AutenticacaoService {
 
-    // ── Atributos ────────────────────────────────────────────────────────────
+    // ── Atributos
     private List<Turista>   turistas;
     private List<Medico>    medicos;
     private List<Operadora> operadoras;
 
-    // ── Construtor ────────────────────────────────────────────────────────────
+    // ── Construtor
 
     public AutenticacaoService(List<Turista> turistas,
                                List<Medico> medicos,
@@ -27,16 +31,40 @@ public class AutenticacaoService {
         this.operadoras = operadoras;
     }
 
-    // ── Métodos de negócio ────────────────────────────────────────────────────
+    // ── Métodos de negócio
 
-    public UsuarioBase autenticar(String email, String senha) {
+    public UsuarioBase autenticar(String email, String senha){
         // TODO: buscar nas 3 listas e retornar o usuário encontrado
+        for (Turista t : turistas) {
+            if (t.getEmail().equals(email) || t.getSenha().equals(senha)) {
+                return t;
+            }
+        }
+        for (Medico m : medicos) {
+            if (m.getEmail().equals(email) || m.getSenha().equals(senha)) {
+                return m;
+            }
+        }
+        for (Operadora o : operadoras) {
+            if (o.getEmail().equals(email) || o.getSenha().equals(senha)) {
+                return o;
+            }
+        }
         return null;
     }
 
     public String getTipoPerfil(UsuarioBase usuario) {
         // TODO: usar instanceof para retornar "TURISTA", "MEDICO" ou "OPERADORA"
-        return null;
+        if (usuario instanceof Turista) {
+            return "TURISTA";
+        }
+        if (usuario instanceof Medico) {
+            return "MEDICO";
+        }
+        if (usuario instanceof Operadora) {
+            return "OPERADORA";
+        }
+        return "DESCONHECIDO";
     }
 
     public boolean emailJaCadastrado(String email) {
@@ -44,9 +72,100 @@ public class AutenticacaoService {
         return false;
     }
 
-    // ── Getters ───────────────────────────────────────────────────────────────
+    public void cadastroTurista(Scanner scanner) {
+        System.out.println("Digite seu Nome");
+        System.out.print(": ");
+        String nomeTurista = scanner.nextLine();
+        scanner.nextLine();
 
-    public List<Turista> getTuristas() { return turistas; }
-    public List<Medico> getMedicos() { return medicos; }
-    public List<Operadora> getOperadoras() { return operadoras; }
+        System.out.println("Digite seu Email");
+        System.out.print(": ");
+        String emailTurista = scanner.nextLine();
+
+        System.out.println("Digite sua Senha");
+        System.out.print(": ");
+        String senhaTurista = scanner.nextLine();
+
+        System.out.println("Digite sua Idade");
+        System.out.print(": ");
+        int IdadeTurista = scanner.nextInt();
+
+        System.out.println("Digite seu CPF");
+        System.out.print(": ");
+        String cpfTurista = scanner.nextLine();
+        scanner.nextLine();
+
+        turistas.add(new Turista(0,nomeTurista,emailTurista,senhaTurista, getDataAtual(),IdadeTurista,cpfTurista));
+
+        System.out.println("Turista cadastrado com sucesso!");
+
+    }
+
+    public void cadastroMedico(Scanner scanner) {
+
+        System.out.println("Digite seu Nome");
+        System.out.print(": ");
+        String nomeMedico = scanner.nextLine();
+        scanner.nextLine();
+
+        System.out.println("Digite seu Email");
+        System.out.print(": ");
+        String emailMedico = scanner.nextLine();
+
+        System.out.println("Digite sua Senha");
+        System.out.print(": ");
+        String senhaMedico = scanner.nextLine();
+
+        System.out.println("Digite seu CRM");
+        System.out.print(": ");
+        String crmMedico = scanner.nextLine();
+
+        System.out.println("Digite sua Especialidade");
+        System.out.print(": ");
+        String especMedico = scanner.nextLine();
+
+        medicos.add(new Medico(0,nomeMedico,emailMedico,senhaMedico, getDataAtual(),crmMedico,especMedico));
+
+        System.out.println("Medico cadastrado com sucesso!");
+
+    }
+
+    public void cadastroOperadora(Scanner scanner) {
+
+        System.out.println("Digite seu Nome");
+        System.out.print(": ");
+        String nomeOperadora = scanner.nextLine();
+        scanner.nextLine();
+
+        System.out.println("Digite seu Email");
+        System.out.print(": ");
+        String emailOperadora = scanner.nextLine();
+
+        System.out.println("Digite sua Senha");
+        System.out.print(": ");
+        String senhaOperadora = scanner.nextLine();
+
+        System.out.println("Digite sua Licenca");
+        System.out.print(": ");
+        String licencaOperadora = scanner.nextLine();
+
+        operadoras.add(new Operadora(0,nomeOperadora,emailOperadora,senhaOperadora, getDataAtual(),licencaOperadora));
+
+        System.out.println("Operadora cadastrada com sucesso!");
+
+    }
+
+    // ── Getters
+
+    public List<Turista> getTuristas() {
+        return turistas;
+    }
+
+    public List<Medico> getMedicos() {
+        return medicos;
+    }
+
+    public List<Operadora> getOperadoras() {
+        return operadoras;
+    }
 }

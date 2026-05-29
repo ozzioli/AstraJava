@@ -18,8 +18,12 @@ public class MenuMedico {
 
     // ── Construtor ────────────────────────────────────────────────────────────
 
-    public MenuMedico(Medico medico, Scanner scanner, MedicoService medicoService) {
+    public MenuMedico(MedicoService medicoService, Scanner scanner, Medico medico) {
+        this.medicoService = medicoService;
+        this.scanner = scanner;
+        this.medico = medico;
     }
+
 
     // ── Loop principal do menu ────────────────────────────────────────────────
 
@@ -28,6 +32,7 @@ public class MenuMedico {
      * Continua em loop até a opção 0 (sair).
      */
     public void exibir() {
+        System.out.println("Iniciado");
     }
 
     // ── Opções do menu ────────────────────────────────────────────────────────

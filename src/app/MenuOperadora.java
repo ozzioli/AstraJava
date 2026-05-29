@@ -20,10 +20,13 @@ public class MenuOperadora {
 
     // ── Construtor ────────────────────────────────────────────────────────────
 
-    public MenuOperadora(Operadora operadora, Scanner scanner,
-                         PacoteService pacoteService,
-                         ReservaService reservaService) {
+    public MenuOperadora(Operadora operadora, Scanner scanner, PacoteService pacoteService, ReservaService reservaService) {
+        this.operadora = operadora;
+        this.scanner = scanner;
+        this.pacoteService = pacoteService;
+        this.reservaService = reservaService;
     }
+
 
     // ── Loop principal do menu ────────────────────────────────────────────────
 
@@ -32,6 +35,7 @@ public class MenuOperadora {
      * Continua em loop até a opção 0 (sair).
      */
     public void exibir() {
+        System.out.println("Iniciado");
     }
 
     // ── Opções do menu ────────────────────────────────────────────────────────

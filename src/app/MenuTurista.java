@@ -25,12 +25,15 @@ public class MenuTurista {
 
     // ── Construtor ────────────────────────────────────────────────────────────
 
-    public MenuTurista(Turista turista, Scanner scanner,
-                       PacoteService pacoteService,
-                       ReservaService reservaService,
-                       ScoreService scoreService,
-                       MedicoService medicoService) {
+    public MenuTurista(Turista turista, Scanner scanner, PacoteService pacoteService, ReservaService reservaService, ScoreService scoreService, MedicoService medicoService) {
+        this.turista = turista;
+        this.scanner = scanner;
+        this.pacoteService = pacoteService;
+        this.reservaService = reservaService;
+        this.scoreService = scoreService;
+        this.medicoService = medicoService;
     }
+
 
     // ── Loop principal do menu ────────────────────────────────────────────────
 
@@ -39,6 +42,7 @@ public class MenuTurista {
      * Continua em loop até a opção 0 (sair).
      */
     public void exibir() {
+        System.out.println("Iniciado");
     }
 
     // ── Opções do menu ────────────────────────────────────────────────────────

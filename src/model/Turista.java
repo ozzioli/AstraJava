@@ -3,6 +3,7 @@ package model;
 import abstracts.UsuarioBase;
 import interfaces.Avaliavel;
 import interfaces.Notificavel;
+import service.AutenticacaoService;
 import util.DataUtil;
 
 import java.util.Scanner;
@@ -29,9 +30,9 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
     public Turista(int id, String nome, String email, String senha,
                    String dataCadastro, int idade, String cpf) {
         super(id, nome, email, senha, dataCadastro);
-        this.idade         = idade;
-        this.cpf           = cpf;
-        this.scoreAtual    = 0;
+        this.idade = idade;
+        this.cpf = cpf;
+        this.scoreAtual = 0;
         this.statusAptidao = StatusTurista.CADASTRADO;
     }
 
@@ -54,7 +55,7 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
     //  Preenche as categorias físico, cardiovascular e psicológico.
 
     @Override
-    public void responderQuestionario() {
+    public void responderQuestionario(Turista turista) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -102,6 +103,8 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
 
         // ── Montar array e criar objeto AvaliacaoAptidao ──────────────
         int[] respostas = { f1, f2, f3, c1, c2, c3, p1, p2, p3 };
+
+        turista.setStatusAptidao(StatusTurista.EM_AVALIACAO); // verificar funcionalidade
 
         AvaliacaoAptidao nova = new AvaliacaoAptidao(1, respostas, DataUtil.getDataAtual());
     }
