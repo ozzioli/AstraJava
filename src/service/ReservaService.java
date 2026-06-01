@@ -9,9 +9,8 @@ import util.DataUtil;
 import javax.xml.crypto.Data;
 import java.util.List;
 
-/**
- * Service responsável pela gestão de reservas e cancelamentos.
- */
+ // Service responsável pela gestão de reservas e cancelamentos.
+
 public class ReservaService {
 
     // ── Atributo ──────────────────────────────────────────────────────────────
@@ -42,11 +41,26 @@ public class ReservaService {
     }
 
     public void cancelarReserva(Reserva reserva) {
-        // TODO: chamar calcularReembolso(), exibir tipo antes de confirmar, marcar como inativa
+        // TODO: exibir tipo antes de confirmar, marcar como inativa
+        reserva.getPacote().cancelar(reserva);
+        reservas.remove(reserva);
     }
 
     public void listarReservasPorTurista(Turista turista) {
         // TODO: filtrar reservas pelo turista e exibir
+        System.out.println("===== SUAS RESERVAS =====");
+        boolean encontrou = false;
+        for (Reserva reserva : reservas) {
+            if (reserva.getTurista() == turista) {
+                System.out.println(reserva.getId() + ". "+ reserva);
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            System.out.println("SEM RESERVAS");
+        }
+
     }
 
     public void listarPassageirosPorPacote(PacoteEspacial pacote) {

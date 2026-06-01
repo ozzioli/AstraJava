@@ -61,6 +61,9 @@ public class PacoteEspacial implements Reservavel {
     @Override
     public void cancelar(Reserva reserva) {
         // TODO: implementar cancelamento e incrementar vagas
+        PacoteEspacial pacote = reserva.getPacote();
+        pacote.vagasTotais++;
+        System.out.println("Vaga desocupada com sucesso!");
     }
 
     // ── Métodos de domínio ────────────────────────────────────────────────────

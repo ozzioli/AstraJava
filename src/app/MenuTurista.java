@@ -2,6 +2,7 @@ package app;
 
 import abstracts.UsuarioBase;
 import model.PacoteEspacial;
+import model.Reserva;
 import model.Turista;
 import service.MedicoService;
 import service.PacoteService;
@@ -120,8 +121,7 @@ public class MenuTurista {
         System.out.print(": ");
         int idPacote = scanner.nextInt();
 
-        List<PacoteEspacial> pacotes = pacoteService.getPacotes();
-        for (PacoteEspacial p : pacotes) {
+        for (PacoteEspacial p : pacoteService.getPacotes()) {
             if (p.getId() == idPacote) {
                 reservaService.realizarReserva(turista,p);
             }
@@ -130,6 +130,24 @@ public class MenuTurista {
 
     // Opção 5 — Cancela uma reserva ativa e informa o tipo de reembolso.
     private void cancelarReserva() {
+        System.out.println("------------ CANCELAR RESERVA ------------");
+        reservaService.listarReservasPorTurista(turista);
+        System.out.println("------------------------------------------");
+        System.out.println("Digite o id da reserva que voce deseja cancelar");
+
+        Reserva reservaParaCancelar = null;
+
+        int idReserva = scanner.nextInt();
+
+        for (Reserva reserva : reservaService.getReservas()) {
+            if (idReserva == reserva.getId()) {
+                reservaParaCancelar = reserva;
+                break;
+            }
+        }
+        if (reservaParaCancelar != null) {
+            reservaService.cancelarReserva(reservaParaCancelar);
+        }
     }
 
     // Opção 6 — Exibe o plano de preparação gerado pelo médico.

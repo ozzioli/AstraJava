@@ -36,6 +36,12 @@ public class PacoteService {
 
     public PacoteEspacial buscarPorId(int id) {
         // TODO: percorrer lista e retornar o pacote com o id correspondente
+
+        for (PacoteEspacial p : pacotes) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
         return null;
     }
 
