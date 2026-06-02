@@ -11,9 +11,8 @@ import java.util.Scanner;
 
 import static util.DataUtil.getDataAtual;
 
-/**
- * Service responsável pela autenticação de usuários no sistema ASTRA.
- */
+ // Service responsável pela autenticação de usuários no sistema ASTRA.
+
 public class AutenticacaoService {
 
     // ── Atributos
@@ -116,7 +115,10 @@ public class AutenticacaoService {
         String cpfTurista = scanner.nextLine();
         scanner.nextLine();
 
-        turistas.add(new Turista(0,nomeTurista,emailTurista,senhaTurista, getDataAtual(),IdadeTurista,cpfTurista));
+        // gerar novo id
+        int gerarID = turistas.stream().mapToInt(Turista::getId).max().orElse(0) + 1;
+
+        turistas.add(new Turista(gerarID,nomeTurista,emailTurista,senhaTurista, getDataAtual(),IdadeTurista,cpfTurista));
 
         System.out.println("Turista cadastrado com sucesso!");
 
@@ -147,7 +149,10 @@ public class AutenticacaoService {
         System.out.print(": ");
         String especMedico = scanner.nextLine();
 
-        medicos.add(new Medico(0,nomeMedico,emailMedico,senhaMedico, getDataAtual(),crmMedico,especMedico));
+        // gerar novo id
+        int gerarID = medicos.stream().mapToInt(Medico::getId).max().orElse(0) + 1;
+
+        medicos.add(new Medico(gerarID,nomeMedico,emailMedico,senhaMedico, getDataAtual(),crmMedico,especMedico));
 
         System.out.println("Medico cadastrado com sucesso!");
 
@@ -166,7 +171,6 @@ public class AutenticacaoService {
             return;
         }
 
-
         System.out.println("Digite sua Senha");
         System.out.print(": ");
         String senhaOperadora = scanner.nextLine();
@@ -175,7 +179,10 @@ public class AutenticacaoService {
         System.out.print(": ");
         String licencaOperadora = scanner.nextLine();
 
-        operadoras.add(new Operadora(0,nomeOperadora,emailOperadora,senhaOperadora, getDataAtual(),licencaOperadora));
+        // gerar novo id
+        int gerarID = operadoras.stream().mapToInt(Operadora::getId).max().orElse(0) + 1;
+
+        operadoras.add(new Operadora(gerarID,nomeOperadora,emailOperadora,senhaOperadora, getDataAtual(),licencaOperadora));
 
         System.out.println("Operadora cadastrada com sucesso!");
 

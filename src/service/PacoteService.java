@@ -1,6 +1,8 @@
 package service;
 
+import model.Operadora;
 import model.PacoteEspacial;
+import model.Turista;
 
 import java.util.List;
 import java.util.Scanner;
@@ -30,8 +32,9 @@ public class PacoteService {
         }
     }
 
-    public void filtrarPorDestino(String destino) {
-        // TODO: filtrar por destino contendo a string e exibir
+    public int getLastID() {
+        // TODO: Pegar o ultimo id do pacote para gerar um novo ID
+        return pacotes.stream().mapToInt(PacoteEspacial::getId).max().orElse(0) + 1;
     }
 
     public PacoteEspacial buscarPorId(int id) {

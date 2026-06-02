@@ -100,12 +100,30 @@ public class MenuTurista {
 
     // Opção 2 — Inicia o questionário de aptidão e calcula o score.
     private void responderQuestionario() {
-        turista.responderQuestionario(turista);
+        scanner.nextLine();
+        if (turista.getStatusAptidao() != StatusTurista.APROVADO) {
+            turista.responderQuestionario(turista);
+        }
+        else {
+            System.out.println("Voce ja esta aprovado no teste de aptidao!");
+        }
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
+        }
     }
 
     // Opção 3 — Exibe o score atual e a classificação do turista.
     private void verScore() {
-        System.out.println("Score atual: " + turista.getScoreAtual());
+        System.out.println("Score atual: " + turista.getScoreAtual() + " | Faca o questionario para subitr seu score e ser avaliado pelo medico!");
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
+        }
     }
 
     // Opção 4 — Permite reservar um pacote (somente se status APROVADO).
@@ -113,15 +131,24 @@ public class MenuTurista {
         pacoteService.listarPacotesAtivos();
 
         System.out.println("=================================================");
-        System.out.println("Selecione o id do pacote que voce pretende  reservar: ");
+        System.out.println("Selecione o id do pacote que voce pretende reservar: ");
         System.out.print(": ");
         int idPacote = scanner.nextInt();
-
-        for (PacoteEspacial p : pacoteService.getPacotes()) {
-            if (p.getId() == idPacote) {
-                reservaService.realizarReserva(turista,p);
-            }
+        PacoteEspacial pacote = pacoteService.buscarPorId(idPacote);
+        if (pacote != null) {
+            reservaService.realizarReserva(turista,pacote);
         }
+        else {
+            System.out.println("Pacote incexistente");
+        }
+
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
+        }
+
     }
 
     // Opção 5 — Cancela uma reserva ativa e informa o tipo de reembolso.
@@ -154,6 +181,12 @@ public class MenuTurista {
         }
         else {
             System.out.println("SEM PLANO AINDA (ESPERANDO SER APROVADO)");
+        }
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
         }
     }
 }

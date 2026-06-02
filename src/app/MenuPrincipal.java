@@ -84,7 +84,7 @@ public class MenuPrincipal {
         System.out.println("Encerrando ASTRA. Ate logo!");
     }
 
-    // ── Métodos privados ──────────────────────────────────────────────────────
+    // ── Métodos privados
 
     // Exibe a tela inicial de boas-vindas com o nome do sistema.
     private void exibirBoasVindas() {

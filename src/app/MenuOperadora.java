@@ -55,6 +55,7 @@ public class MenuOperadora {
             }
 
             if (opcao == 2) {
+                scanner.nextLine();
                 cadastrarNovoPacote();
             }
 
@@ -73,7 +74,7 @@ public class MenuOperadora {
     // Opção 1 — Lista todos os pacotes cadastrados pela operadora.
     private void verMeusPacotes() {
         System.out.println("========= SEUS PACOTES =========");
-        System.out.println(operadora.getPacotes());
+        operadora.listarPacotes();
 
         int opcao = -1;
         while (opcao != 0) {
@@ -98,15 +99,17 @@ public class MenuOperadora {
         System.out.print(": ");
         int vagasTotais = scanner.nextInt();
 
+        scanner.nextLine(); // limpa o ENTER
+
         System.out.println("Digite a data da viagem (Ex: DD/MM/AAAA)");
         System.out.print(": ");
         String dataViagem = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Digite a descricao da viagem");
         System.out.print(": ");
         String descricao = scanner.nextLine();
-        PacoteEspacial pacote = new PacoteEspacial(0,destino,preco,vagasTotais,dataViagem,descricao);
+
+        PacoteEspacial pacote = new PacoteEspacial(pacoteService.getLastID(),destino,preco,vagasTotais,dataViagem,descricao);
         pacoteService.cadastrarPacote(pacote);
         operadora.cadastrarPacote(pacote);
 
@@ -130,6 +133,12 @@ public class MenuOperadora {
                 reservaService.listarPassageirosPorPacote(p);
             }
         }
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
+        }
 
     }
 
@@ -150,6 +159,12 @@ public class MenuOperadora {
                 System.out.println("RESERVA: " + p);
                 reservaService.listarStatusPassageiros(p);
             }
+        }
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
         }
     }
 }

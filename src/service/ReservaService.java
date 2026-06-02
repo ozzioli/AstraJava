@@ -1,9 +1,7 @@
 package service;
 
-import model.PacoteEspacial;
-import model.Reserva;
-import model.StatusTurista;
-import model.Turista;
+import model.*;
+import util.DataUtil;
 
 import java.util.List;
 
@@ -11,23 +9,25 @@ import java.util.List;
 
 public class ReservaService {
 
-    // ── Atributo ──────────────────────────────────────────────────────────────
+    // ── Atributo
     private List<Reserva> reservas;
 
-    // ── Construtor ────────────────────────────────────────────────────────────
+    // ── Construtor
 
     public ReservaService(List<Reserva> reservas) {
         this.reservas = reservas;
     }
 
-    // ── Métodos de negócio ────────────────────────────────────────────────────
+    // ── Métodos de negócio
 
     public void realizarReserva(Turista turista, PacoteEspacial pacote) {
         // TODO: validar status APROVADO, vagas e antecedência mínima (DataUtil)
 
         if (turista.getStatusAptidao().equals(StatusTurista.APROVADO)) {
             if (pacote.temVagaDisponivel()){
-                Reserva reserva = pacote.reservar(turista);
+                int gerarID = reservas.stream().mapToInt(Reserva::getId).max().orElse(0) + 1;
+                Reserva reserva = new Reserva(gerarID, turista, pacote, DataUtil.getDataAtual());
+                pacote.reservar(turista);
                 reservas.add(reserva);
                 System.out.println("Reserva feita com sucesso!");
                 return;
@@ -96,7 +96,9 @@ public class ReservaService {
 
     }
 
-    // ── Getter ────────────────────────────────────────────────────────────────
+
+
+    // ── Getter
 
     public List<Reserva> getReservas() { return reservas; }
 }

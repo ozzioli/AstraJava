@@ -14,7 +14,7 @@ public interface Reservavel {
      // @param turista turista que deseja reservar
      // @return Reserva criada
 
-    Reserva reservar(Turista turista);
+    void reservar(Turista turista);
 
      // Cancela uma reserva existente e calcula o tipo de reembolso.
      // @param reserva reserva a ser cancelada

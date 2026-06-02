@@ -8,18 +8,17 @@ import service.MedicoService;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Menu do painel do médico avaliador.
- * Opções: ver candidatos pendentes, avaliar candidato, ver histórico.
- */
+ // Menu do painel do médico avaliador.
+ // Opções: ver candidatos pendentes, avaliar candidato, ver histórico.
+
 public class MenuMedico {
 
-    // ── Atributos ────────────────────────────────────────────────────────────
-    private Medico        medico;
-    private Scanner       scanner;
+    // ── Atributos
+    private Medico medico;
+    private Scanner scanner;
     private MedicoService medicoService;
 
-    // ── Construtor ────────────────────────────────────────────────────────────
+    // ── Construtor
 
     public MenuMedico(MedicoService medicoService, Scanner scanner, Medico medico) {
         this.medicoService = medicoService;
@@ -28,24 +27,22 @@ public class MenuMedico {
     }
 
 
-    // ── Loop principal do menu ────────────────────────────────────────────────
+    // ── Loop principal do menu
 
-    /**
-     * Exibe o menu e processa a opção escolhida pelo médico.
-     * Continua em loop até a opção 0 (sair).
-     */
+     // Exibe o menu e processa a opção escolhida pelo médico.
+     // Continua em loop até a opção 0 (sair).
+
     public void exibir() {
         int opcao = -1;
 
         while (opcao != 0) {
-            System.out.println("\n╔══════════════════════════════════╗");
-            System.out.println("║       PAINEL DO MÉDICO           ║");
-            System.out.println("╠══════════════════════════════════╣");
-            System.out.println("║ 1 - Ver candidatos pendentes     ║");
-            System.out.println("║ 2 - Avaliar candidato            ║");
-            System.out.println("║ 3 - Ver histórico de avaliações  ║");
-            System.out.println("║ 0 - Sair                         ║");
-            System.out.println("╚══════════════════════════════════╝");
+            System.out.println("\n══════════════════════════════════");
+            System.out.println("PAINEL DO MÉDICO");
+            System.out.println("══════════════════════════════════");
+            System.out.println(" 1 - Ver candidatos pendentes");
+            System.out.println(" 2 - Avaliar candidato");
+            System.out.println(" 3 - Ver histórico de avaliações");
+            System.out.println(" 0 - Sair");
             System.out.print("Opção: ");
 
             opcao = scanner.nextInt();
@@ -61,18 +58,17 @@ public class MenuMedico {
         }
     }
 
-    // ── Opções do menu ────────────────────────────────────────────────────────
+    // ── Opções do menu
 
-    /** Opção 1 — Lista todos os turistas com status EM_AVALIACAO. */
+    // Opção 1 — Lista todos os turistas com status EM_AVALIACAO.
     private void verCandidatosPendentes() {
         System.out.println("\n── CANDIDATOS PENDENTES ─────────────────────");
         medicoService.listarCandidatosPendentes();
     }
 
-    /**
-     * Opção 2 — Permite ao médico escolher um candidato, visualizar
-     * o questionário respondido e registrar aprovação ou reprovação.
-     */
+    //  Opção 2 — Permite ao médico escolher um candidato, visualizar
+    //  o questionário respondido e registrar aprovação ou reprovação.
+
     private void avaliarCandidato() {
         List<Turista> pendentes = medicoService.getTuristas()
                 .stream()
@@ -138,7 +134,7 @@ public class MenuMedico {
         // apos aprovacao o plano de preparacao tem que ser gerado para o usuario
     }
 
-    /** Opção 3 — Exibe o histórico de avaliações realizadas pelo médico. */
+    // Opção 3 — Exibe o histórico de avaliações realizadas pelo médico.
     private void verHistoricoAvaliacoes() {
         List<Turista> avaliados = medicoService.getTuristas()
                 .stream()

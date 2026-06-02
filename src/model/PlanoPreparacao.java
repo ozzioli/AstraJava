@@ -23,7 +23,7 @@ public class PlanoPreparacao {
 
     public PlanoPreparacao(int id, List<String> treinos, List<String> orientacoesNutricionais,
                            String dataInicio, String dataLimite) {
-        this.id = getId() +1; // mudar depois
+        this.id = id; // mudar depois
         this.treinos = treinos;
         this.orientacoesNutricionais = orientacoesNutricionais;
         this.dataInicio = dataInicio;
@@ -84,9 +84,12 @@ public class PlanoPreparacao {
 
     @Override
     public String toString() {
-        return "PlanoPreparacao{id=" + id +
-                ", dataInicio='" + dataInicio +
-                "', dataLimite='" + dataLimite +
-                "', treinos=" + (treinos != null ? treinos.size() : 0) + " atividade(s)}";
+        return "PlanoPreparacao{" +
+                "treinos=" + treinos +
+                ", orientacoesNutricionais=" + orientacoesNutricionais +
+                ", dataInicio='" + dataInicio + '\'' +
+                ", dataLimite='" + dataLimite + '\'' +
+                ", observacoes='" + observacoes + '\'' +
+                '}';
     }
 }

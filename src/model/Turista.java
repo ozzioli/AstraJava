@@ -163,8 +163,8 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
         this.avaliacao = avaliacao;
     }
 
-    public PlanoPreparacao getPlanoPreparacao() {
-        return planoPreparacao;
+    public String getPlanoPreparacao() {
+        return planoPreparacao.toString();
     }
 
     public void setPlanoPreparacao(PlanoPreparacao planoPreparacao) {

@@ -17,10 +17,10 @@ public class Main {
 
         // ── Listas em memória
         List<Turista> turistas = new ArrayList<>();
-        List<Medico> medicos    = new ArrayList<>();
+        List<Medico> medicos = new ArrayList<>();
         List<Operadora> operadoras = new ArrayList<>();
-        List<PacoteEspacial> pacotes   = new ArrayList<>();
-        List<Reserva> reservas   = new ArrayList<>();
+        List<PacoteEspacial> pacotes = new ArrayList<>();
+        List<Reserva> reservas = new ArrayList<>();
 
         // ── Dados de exemplo
 
