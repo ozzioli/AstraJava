@@ -46,6 +46,7 @@ public class MenuMedico {
      * o questionário respondido e registrar aprovação ou reprovação.
      */
     private void avaliarCandidato() {
+        // apos aprovacao o plano de preparacao tem que ser gerado para o usuario
     }
 
     /** Opção 3 — Exibe o histórico de avaliações realizadas pelo médico. */
