@@ -43,8 +43,8 @@ public class Main {
                 "senha123", DataUtil.getDataAtual(), "54321", "Medicina Esportiva"));
 
         // operadoras
-        operadoras.add(new Operadora(1, "SpaceX Tourism", "contato@spacex.com",
-                "senha123", DataUtil.getDataAtual(), "LIC-SPACE-001"));
+        operadoras.add(new Operadora(1, "SpaceX Tourism", "spacex",
+                "123", DataUtil.getDataAtual(), "LIC-SPACE-001"));
 
         // Pacotes
         pacotes.add(new PacoteEspacial(1, "Lua", 850000.00, 12,

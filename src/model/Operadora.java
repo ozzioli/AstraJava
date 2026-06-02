@@ -11,7 +11,7 @@ import java.util.List;
 public class Operadora extends UsuarioBase {
 
     // ── Atributos específicos da Operadora ────────────────────────────────────
-    private String               licenca;
+    private String licenca;
     private List<PacoteEspacial> pacotes;
 
     // ── Construtores ─────────────────────────────────────────────────────────
@@ -38,10 +38,14 @@ public class Operadora extends UsuarioBase {
 
     public void cadastrarPacote(PacoteEspacial pacote) {
         // TODO: implementar cadastro de pacote
+        pacotes.add(pacote);
+        System.out.println("Pacote adicionado com sucesso");
+
     }
 
     public void listarPacotes() {
         // TODO: implementar listagem de pacotes
+        System.out.println(pacotes);
     }
 
     // ── Getters e Setters ─────────────────────────────────────────────────────

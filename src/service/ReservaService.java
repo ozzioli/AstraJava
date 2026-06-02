@@ -4,9 +4,7 @@ import model.PacoteEspacial;
 import model.Reserva;
 import model.StatusTurista;
 import model.Turista;
-import util.DataUtil;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 
  // Service responsável pela gestão de reservas e cancelamentos.
@@ -24,7 +22,7 @@ public class ReservaService {
 
     // ── Métodos de negócio ────────────────────────────────────────────────────
 
-    public Reserva realizarReserva(Turista turista, PacoteEspacial pacote) {
+    public void realizarReserva(Turista turista, PacoteEspacial pacote) {
         // TODO: validar status APROVADO, vagas e antecedência mínima (DataUtil)
 
         if (turista.getStatusAptidao().equals(StatusTurista.APROVADO)) {
@@ -32,12 +30,11 @@ public class ReservaService {
                 Reserva reserva = pacote.reservar(turista);
                 reservas.add(reserva);
                 System.out.println("Reserva feita com sucesso!");
-                return reserva;
+                return;
 
             }
         }
         System.out.println("Erro ao realizar reserva");
-        return null;
     }
 
     public void cancelarReserva(Reserva reserva) {
@@ -52,7 +49,7 @@ public class ReservaService {
         boolean encontrou = false;
         for (Reserva reserva : reservas) {
             if (reserva.getTurista() == turista) {
-                System.out.println(reserva.getId() + ". "+ reserva);
+                System.out.println("ID: " + reserva.getId() + ". "+ reserva);
                 encontrou = true;
             }
         }
@@ -65,6 +62,38 @@ public class ReservaService {
 
     public void listarPassageirosPorPacote(PacoteEspacial pacote) {
         // TODO: filtrar reservas pelo pacote e exibir turistas
+
+        System.out.println("===== PASSAGEIROS =====");
+        boolean encontrou = false;
+        for (Reserva reserva : reservas) {
+            if (reserva.getPacote() == pacote) {
+                System.out.println("ID: " + reserva.getId() + ". PASSAGEIRO: "+ reserva.getTurista().getNome());
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            System.out.println("SEM PASSAGEIROS");
+        }
+
+    }
+
+    public void listarStatusPassageiros(PacoteEspacial pacote) {
+        // TODO: filtrar reservas pelo pacote e exibir turistas
+
+        System.out.println("===== RESERVAS  FEITAS =====");
+        boolean encontrou = false;
+        for (Reserva reserva : reservas) {
+            if (reserva.getPacote() == pacote) {
+                System.out.println("ID: " + reserva.getId() + ". PASSAGEIRO: "+ reserva.getTurista().getNome() + " | STATUS: " + reserva.getTurista().getStatusAptidao());
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            System.out.println("SEM PASSAGEIROS");
+        }
+
     }
 
     // ── Getter ────────────────────────────────────────────────────────────────
