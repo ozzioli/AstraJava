@@ -1,9 +1,7 @@
 package app;
 
 import abstracts.UsuarioBase;
-import model.PacoteEspacial;
-import model.Reserva;
-import model.Turista;
+import model.*;
 import service.MedicoService;
 import service.PacoteService;
 import service.ReservaService;
@@ -45,8 +43,6 @@ public class MenuTurista {
      // Continua em loop até a opção 0 (sair).
 
     public void exibir(Scanner scanner) {
-        System.out.println("Iniciado");
-
         int opcao = -1;
 
         while (opcao != 0) {
@@ -152,5 +148,12 @@ public class MenuTurista {
 
     // Opção 6 — Exibe o plano de preparação gerado pelo médico.
     private void verPlanoPreparacao() {
+        if (turista.getStatusAptidao() == StatusTurista.APROVADO) {
+            System.out.println("======== PLANO DE PREPARACAO ========");
+            System.out.println(turista.getPlanoPreparacao());
+        }
+        else {
+            System.out.println("SEM PLANO AINDA (ESPERANDO SER APROVADO)");
+        }
     }
 }

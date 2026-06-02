@@ -139,7 +139,7 @@ public class MenuPrincipal {
             Operadora user = (Operadora) autenticacaoService.autenticar(email, senha);
 
             MenuOperadora menuOperadora = new MenuOperadora(user,scanner,pacoteService,reservaService);
-            menuOperadora.exibir();
+            menuOperadora.exibir(scanner);
         };
 
     }
