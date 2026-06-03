@@ -16,7 +16,8 @@ public class Validador {
      * @return true se o formato for válido
      */
     public static boolean validarEmail(String email) {
-        return false;
+        if (email == null) return false;
+        return email.matches("^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$");
     }
 
     /**
@@ -25,7 +26,8 @@ public class Validador {
      * @return true se a senha for válida
      */
     public static boolean validarSenha(String senha) {
-        return false;
+        if (senha == null) return false;
+        return senha.length() >= 6;
     }
 
     /**
@@ -34,7 +36,8 @@ public class Validador {
      * @return true se o CRM for válido
      */
     public static boolean validarCrm(String crm) {
-        return false;
+        if (crm == null) return false;
+        return crm.matches("^\\d{4,6}$");
     }
 
     /**
@@ -43,7 +46,7 @@ public class Validador {
      * @return true se a idade for >= 18
      */
     public static boolean validarIdade(int idade) {
-        return false;
+        return idade >= 18;
     }
 
     /**
@@ -52,6 +55,6 @@ public class Validador {
      * @return true se não for vazia
      */
     public static boolean campoPreenchido(String valor) {
-        return false;
+        return valor != null && !valor.isBlank();
     }
 }
