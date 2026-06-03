@@ -11,13 +11,17 @@ public class DataUtil {
     private DataUtil() {
     }
 
-     //Calcula a diferença em dias entre duas datas.
-     // @param dataInicio data inicial no formato dd/MM/yyyy
-     // @param dataFim    data final no formato dd/MM/yyyy
-     // @return número de dias entre as duas datas
+     //Calcula a data limite (100 dias) para concluir a preparacao espacial
 
-    public static long calcularDiferencaDias(String dataInicio, String dataFim) {
-        return 0;
+    public static String calcularDataLimite(String dataInicio) {
+
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        LocalDate data = LocalDate.parse(dataInicio, formato);
+
+        LocalDate dataLimite = data.plusDays(100);
+
+        return dataLimite.format(formato);
     }
 
      // Retorna a data atual formatada como dd/MM/yyyy.

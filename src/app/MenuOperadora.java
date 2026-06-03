@@ -46,6 +46,7 @@ public class MenuOperadora {
             System.out.println("2 - Cadastrar Novo Pacote");
             System.out.println("3 - Ver Passageiros por Missao");
             System.out.println("4 - Ver Status de Prontidao");
+            System.out.println("5 - Exibir Perfil  ");
             System.out.println("0 - Logout");
             System.out.print("Opcao: ");
             opcao = scanner.nextInt();
@@ -65,6 +66,9 @@ public class MenuOperadora {
 
             if (opcao == 4) {
                 verStatusProntidao();
+            }
+            if (opcao == 5) {
+                exibirPerfil();
             }
         }
     }
@@ -160,6 +164,16 @@ public class MenuOperadora {
                 reservaService.listarStatusPassageiros(p);
             }
         }
+        int opcao = -1;
+        while (opcao != 0) {
+            System.out.println("0 - Voltar");
+            System.out.print(": ");
+            opcao = scanner.nextInt();
+        }
+    }
+    // Opção 5 — Exibir perfil completo
+    private void exibirPerfil() {
+        operadora.exibirPerfil();
         int opcao = -1;
         while (opcao != 0) {
             System.out.println("0 - Voltar");

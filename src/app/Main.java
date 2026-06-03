@@ -28,12 +28,6 @@ public class Main {
         turistas.add(new Turista(1, "Carlos Mendonca", "teste",
                 "123", DataUtil.getDataAtual(), 45, "123.456.789-00"));
 
-        for (Turista t : turistas) {
-            if (t.getId() == 1) {
-                t.setStatusAptidao(StatusTurista.APROVADO);
-                break;
-            }
-        }
 
         turistas.add(new Turista(2, "Ana Lima", "ana@email.com",
                 "senha123", DataUtil.getDataAtual(), 32, "987.654.321-00"));

@@ -1,6 +1,9 @@
 package model;
 
 import abstracts.UsuarioBase;
+import util.Formatador;
+
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +34,11 @@ public class Operadora extends UsuarioBase {
     @Override
     public void exibirPerfil() {
         // TODO: implementar exibição no console
+        System.out.println("PERFIL DO OPERADORA:");
+        System.out.println("Nome: " + getNome());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Licenca: " + getLicenca());
+        System.out.println("Pacotes: " + getPacotes());
     }
 
     // ── Métodos de domínio
@@ -45,7 +53,7 @@ public class Operadora extends UsuarioBase {
     public void listarPacotes() {
         // TODO: implementar listagem de pacotes
         for (PacoteEspacial pacote : pacotes) {
-            System.out.println("PACOTE #"  + pacote.getId()  + " | " +  pacote.toString()  + " | ");
+            System.out.println("PACOTE #"  + pacote.getId()  + " | PRECO: " + Formatador.formatarMoeda(pacote.getPreco()) + " | " +  pacote.toString()  + " | ");
         }
     }
 

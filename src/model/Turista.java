@@ -4,7 +4,9 @@ import abstracts.UsuarioBase;
 import interfaces.Avaliavel;
 import interfaces.Notificavel;
 import service.AutenticacaoService;
+import service.ScoreService;
 import util.DataUtil;
+import util.Formatador;
 
 import java.util.Scanner;
 
@@ -56,57 +58,7 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
 
     @Override
     public void responderQuestionario(Turista turista) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("===== QUESTIONÁRIO DE APTIDÃO ESPACIAL =====");
-        System.out.println("Responda de 0 a 10 em cada pergunta.");
-        System.out.println("(0 = péssimo  |  5 = regular  |  10 = excelente)\n");
-
-        // ── Categoria 1: Físico (3 perguntas) ────────────────────────
-        System.out.println("--- FÍSICO ---");
-
-        System.out.print("1. Como você avalia sua resistência física geral? ");
-        int f1 = scanner.nextInt();
-
-        System.out.print("2. Você pratica exercícios físicos regularmente? ");
-        int f2 = scanner.nextInt();
-
-        System.out.print("3. Como está seu nível de energia no dia a dia? ");
-        int f3 = scanner.nextInt();
-
-        // ── Categoria 2: Cardiovascular (3 perguntas) ─────────────────
-        System.out.println("\n--- CARDIOVASCULAR ---");
-
-        System.out.print("4. Você tem histórico de problemas cardíacos? (0=sim / 10=não) ");
-        int c1 = scanner.nextInt();
-
-        System.out.print("5. Como é sua pressão arterial normalmente? ");
-        int c2 = scanner.nextInt();
-
-        System.out.print("6. Você consegue subir 4 lances de escada sem se cansar? ");
-        int c3 = scanner.nextInt();
-
-        // ── Categoria 3: Psicológico (3 perguntas) ────────────────────
-        System.out.println("\n--- PSICOLÓGICO ---");
-
-        System.out.print("7. Como você lida com situações de estresse intenso? ");
-        int p1 = scanner.nextInt();
-
-        System.out.print("8. Você tem medo de altura ou espaços fechados? (0=sim / 10=não) ");
-        int p2 = scanner.nextInt();
-
-        System.out.print("9. Como você avalia seu equilíbrio emocional geral? ");
-        int p3 = scanner.nextInt();
-
-        System.out.print("Formulario concluido com sucesso ");
-
-        // ── Montar array e criar objeto AvaliacaoAptidao ──────────────
-        int[] respostas = { f1, f2, f3, c1, c2, c3, p1, p2, p3 };
-
         turista.setStatusAptidao(StatusTurista.EM_AVALIACAO); // verificar funcionalidade
-
-        AvaliacaoAptidao nova = new AvaliacaoAptidao(1, respostas, DataUtil.getDataAtual());
     }
 
     // Retorna o score atual do turista.
@@ -163,8 +115,8 @@ public class Turista extends UsuarioBase implements Avaliavel, Notificavel {
         this.avaliacao = avaliacao;
     }
 
-    public String getPlanoPreparacao() {
-        return planoPreparacao.toString();
+    public PlanoPreparacao getPlanoPreparacao() {
+        return planoPreparacao;
     }
 
     public void setPlanoPreparacao(PlanoPreparacao planoPreparacao) {

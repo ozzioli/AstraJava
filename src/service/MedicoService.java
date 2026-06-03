@@ -66,7 +66,7 @@ public class MedicoService {
         );
 
         String dataInicio = DataUtil.getDataAtual();
-        String dataLimite = DataUtil.getDataAtual();
+        String dataLimite = DataUtil.calcularDataLimite(dataInicio);
 
         PlanoPreparacao plano = new PlanoPreparacao(
                 turista.getId(),

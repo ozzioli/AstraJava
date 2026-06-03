@@ -5,6 +5,7 @@ import app.MenuTurista;
 import model.Medico;
 import model.Operadora;
 import model.Turista;
+import util.Validador;
 
 import java.util.List;
 import java.util.Scanner;
@@ -109,6 +110,11 @@ public class AutenticacaoService {
         System.out.println("Digite sua Idade");
         System.out.print(": ");
         int IdadeTurista = scanner.nextInt();
+
+        if (!Validador.validarIdade(IdadeTurista)) {
+            System.out.println("Voce precisa ter mais de 18 anos!");
+            return;
+        }
 
         System.out.println("Digite seu CPF");
         System.out.print(": ");
