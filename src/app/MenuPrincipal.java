@@ -84,7 +84,7 @@ public class MenuPrincipal {
         System.out.println("Encerrando ASTRA. Ate logo!");
     }
 
-    // ── Métodos privados ──────────────────────────────────────────────────────
+    // ── Métodos privados
 
     // Exibe a tela inicial de boas-vindas com o nome do sistema.
     private void exibirBoasVindas() {
@@ -139,7 +139,7 @@ public class MenuPrincipal {
             Operadora user = (Operadora) autenticacaoService.autenticar(email, senha);
 
             MenuOperadora menuOperadora = new MenuOperadora(user,scanner,pacoteService,reservaService);
-            menuOperadora.exibir();
+            menuOperadora.exibir(scanner);
         };
 
     }

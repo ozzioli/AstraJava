@@ -3,20 +3,18 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Representa a reserva de um turista em um pacote espacial.
- */
+ // Representa a reserva de um turista em um pacote espacial.
+
 public class Reserva {
 
-    // ── Atributos ────────────────────────────────────────────────────────────
+    // ── Atributos
     private int id;
     private Turista turista;
     private PacoteEspacial pacote;
     private String dataReserva;
     private boolean ativa;
-    private TipoReembolso  tipoReembolso;
 
-    // ── Construtores ─────────────────────────────────────────────────────────
+    // ── Construtores
 
     public Reserva() {
     }
@@ -29,14 +27,7 @@ public class Reserva {
         this.ativa       = true;
     }
 
-    // ── Métodos de domínio ────────────────────────────────────────────────────
-
-    public TipoReembolso calcularReembolso() {
-        // TODO: usar DataUtil para calcular dias restantes e aplicar regra dos 180/90 dias
-        return null;
-    }
-
-    // ── Getters e Setters ─────────────────────────────────────────────────────
+    // ── Getters e Setters
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -53,10 +44,8 @@ public class Reserva {
     public boolean isAtiva() { return ativa; }
     public void setAtiva(boolean ativa) { this.ativa = ativa; }
 
-    public TipoReembolso getTipoReembolso() { return tipoReembolso; }
-    public void setTipoReembolso(TipoReembolso tipoReembolso) { this.tipoReembolso = tipoReembolso; }
 
-    // ── toString ──────────────────────────────────────────────────────────────
+    // ── toString
 
     @Override
     public String toString() {

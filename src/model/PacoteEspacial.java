@@ -6,13 +6,12 @@ import util.DataUtil;
 
 import java.util.Scanner;
 
-/**
- * Representa um pacote de viagem espacial disponível no catálogo.
- * Implementa Reservavel para gerenciar reservas e cancelamentos.
- */
+ // Representa um pacote de viagem espacial disponível no catálogo.
+ // Implementa Reservavel para gerenciar reservas e cancelamentos.
+
 public class PacoteEspacial implements Reservavel {
 
-    // ── Atributos ────────────────────────────────────────────────────────────
+    // ── Atributos
     private int     id;
     private String  destino;
     private double  preco;
@@ -23,7 +22,7 @@ public class PacoteEspacial implements Reservavel {
     private boolean ativo;
     private PacoteService pacoteService;
 
-    // ── Construtores ─────────────────────────────────────────────────────────
+    // ── Construtores
 
     public PacoteEspacial() {
     }
@@ -40,22 +39,23 @@ public class PacoteEspacial implements Reservavel {
         this.ativo            = true;
     }
 
-    // ── Implementação de Reservavel ───────────────────────────────────────────
+    // ── Implementação de Reservavel
 
     @Override
-    public Reserva reservar(Turista turista) {
+    public void reservar(Turista turista) {
         // TODO: implementar reserva e decrementar vagas
         if (!temVagaDisponivel()) {
-            return null;
+            System.out.println("Sem vagas disponiveis");
+            return;
         }
 
         if (turista == null) {
-            return null;
+           System.out.println("Turista nao existe");
+           return;
         }
 
         this.vagasTotais--;
         System.out.println("Vaga ocupada com sucesso!");
-        return new Reserva(0, turista, this, DataUtil.getDataAtual());
     }
 
     @Override
@@ -66,7 +66,7 @@ public class PacoteEspacial implements Reservavel {
         System.out.println("Vaga desocupada com sucesso!");
     }
 
-    // ── Métodos de domínio ────────────────────────────────────────────────────
+    // ── Métodos de domínio
 
     public boolean temVagaDisponivel() {
         // TODO: implementar verificação de vagas
@@ -79,7 +79,7 @@ public class PacoteEspacial implements Reservavel {
         return false;
     }
 
-    // ── Getters e Setters ─────────────────────────────────────────────────────
+    // ── Getters e Setters
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -105,14 +105,18 @@ public class PacoteEspacial implements Reservavel {
     public boolean isAtivo() { return ativo; }
     public void setAtivo(boolean ativo) { this.ativo = ativo; }
 
-    // ── toString ──────────────────────────────────────────────────────────────
+    // ── toString
 
     @Override
     public String toString() {
-        return "PacoteEspacial{id=" + id +
-                ", destino='" + destino +
-                "', preco=" + preco +
-                ", vagasDisponiveis=" + vagasDisponiveis + "/" + vagasTotais +
-                ", dataViagem='" + dataViagem + "'}";
+        return "PacoteEspacial{" +
+                "id=" + id +
+                ", destino='" + destino + '\'' +
+                ", preco=" + preco +
+                ", vagasTotais=" + vagasTotais +
+                ", vagasDisponiveis=" + vagasDisponiveis +
+                ", dataViagem='" + dataViagem + '\'' +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
 }

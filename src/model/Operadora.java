@@ -4,17 +4,16 @@ import abstracts.UsuarioBase;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Representa uma operadora de turismo espacial no sistema ASTRA.
- * Estende UsuarioBase. Gerencia os pacotes de viagem oferecidos.
- */
+ // Representa uma operadora de turismo espacial no sistema ASTRA.
+ // Estende UsuarioBase. Gerencia os pacotes de viagem oferecidos.
+
 public class Operadora extends UsuarioBase {
 
-    // ── Atributos específicos da Operadora ────────────────────────────────────
-    private String               licenca;
+    // ── Atributos específicos da Operadora
+    private String licenca;
     private List<PacoteEspacial> pacotes;
 
-    // ── Construtores ─────────────────────────────────────────────────────────
+    // ── Construtores
 
     public Operadora() {
         this.pacotes = new ArrayList<>();
@@ -27,24 +26,30 @@ public class Operadora extends UsuarioBase {
         this.pacotes = new ArrayList<>();
     }
 
-    // ── Implementação de UsuarioBase ──────────────────────────────────────────
+    // ── Implementação de UsuarioBase
 
     @Override
     public void exibirPerfil() {
         // TODO: implementar exibição no console
     }
 
-    // ── Métodos de domínio ────────────────────────────────────────────────────
+    // ── Métodos de domínio
 
     public void cadastrarPacote(PacoteEspacial pacote) {
         // TODO: implementar cadastro de pacote
+        pacotes.add(pacote);
+        System.out.println("Pacote adicionado com sucesso");
+
     }
 
     public void listarPacotes() {
         // TODO: implementar listagem de pacotes
+        for (PacoteEspacial pacote : pacotes) {
+            System.out.println("PACOTE #"  + pacote.getId()  + " | " +  pacote.toString()  + " | ");
+        }
     }
 
-    // ── Getters e Setters ─────────────────────────────────────────────────────
+    // ── Getters e Setters
 
     public String getLicenca() { return licenca; }
     public void setLicenca(String licenca) { this.licenca = licenca; }
@@ -52,7 +57,7 @@ public class Operadora extends UsuarioBase {
     public List<PacoteEspacial> getPacotes() { return pacotes; }
     public void setPacotes(List<PacoteEspacial> pacotes) { this.pacotes = pacotes; }
 
-    // ── toString ──────────────────────────────────────────────────────────────
+    // ── toString
 
     @Override
     public String toString() {

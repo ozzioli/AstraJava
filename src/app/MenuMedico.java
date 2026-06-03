@@ -15,8 +15,8 @@ import java.util.Scanner;
 public class MenuMedico {
 
     // ── Atributos ────────────────────────────────────────────────────────────
-    private Medico medico;
-    private Scanner scanner;
+    private Medico        medico;
+    private Scanner       scanner;
     private MedicoService medicoService;
 
     // ── Construtor ────────────────────────────────────────────────────────────
@@ -63,9 +63,7 @@ public class MenuMedico {
 
     // ── Opções do menu ────────────────────────────────────────────────────────
 
-    /**
-     * Opção 1 — Lista todos os turistas com status EM_AVALIACAO.
-     */
+    /** Opção 1 — Lista todos os turistas com status EM_AVALIACAO. */
     private void verCandidatosPendentes() {
         System.out.println("\n── CANDIDATOS PENDENTES ─────────────────────");
         medicoService.listarCandidatosPendentes();
@@ -140,9 +138,7 @@ public class MenuMedico {
         // apos aprovacao o plano de preparacao tem que ser gerado para o usuario
     }
 
-    /**
-     * Opção 3 — Exibe o histórico de avaliações realizadas pelo médico.
-     */
+    /** Opção 3 — Exibe o histórico de avaliações realizadas pelo médico. */
     private void verHistoricoAvaliacoes() {
         List<Turista> avaliados = medicoService.getTuristas()
                 .stream()

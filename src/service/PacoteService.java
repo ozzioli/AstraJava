@@ -1,6 +1,8 @@
 package service;
 
+import model.Operadora;
 import model.PacoteEspacial;
+import model.Turista;
 
 import java.util.List;
 import java.util.Scanner;
@@ -30,8 +32,9 @@ public class PacoteService {
         }
     }
 
-    public void filtrarPorDestino(String destino) {
-        // TODO: filtrar por destino contendo a string e exibir
+    public int getLastID() {
+        // TODO: Pegar o ultimo id do pacote para gerar um novo ID
+        return pacotes.stream().mapToInt(PacoteEspacial::getId).max().orElse(0) + 1;
     }
 
     public PacoteEspacial buscarPorId(int id) {
@@ -45,31 +48,9 @@ public class PacoteService {
         return null;
     }
 
-    public void cadastrarPacote(PacoteEspacial pacote, Scanner scanner) {
+    public void cadastrarPacote(PacoteEspacial pacote) {
         // TODO: adicionar pacote na lista
-        System.out.println("Digite o Destino");
-        System.out.print(": ");
-        String destino = scanner.nextLine();
-
-        System.out.println("Digite o preco");
-        System.out.print(": ");
-        double preco = scanner.nextDouble();
-
-        System.out.println("Digite as vagas totais");
-        System.out.print(": ");
-        int vagasTotais = scanner.nextInt();
-
-        System.out.println("Digite a data da viagem (Ex: DD/MM/AAAA)");
-        System.out.print(": ");
-        String dataViagem = scanner.nextLine();
-
-        System.out.println("Digite a descricao da viagem");
-        System.out.print(": ");
-        String descricao = scanner.nextLine();
-        scanner.nextLine();
-
-        pacotes.add(new PacoteEspacial(0,destino,preco,vagasTotais,dataViagem,descricao));
-
+        pacotes.add(pacote);
        System.out.println("Pacote cadastrado com sucesso");
     }
 

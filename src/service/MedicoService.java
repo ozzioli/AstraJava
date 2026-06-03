@@ -9,21 +9,20 @@ import util.DataUtil;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Service responsável pelas operações do painel médico.
- */
+ // Service responsável pelas operações do painel médico.
+
 public class MedicoService {
 
-    // ── Atributo ──────────────────────────────────────────────────────────────
+    // ── Atributo
     private List<Turista> turistas;
 
-    // ── Construtor ────────────────────────────────────────────────────────────
+    // ── Construtor
 
     public MedicoService(List<Turista> turistas) {
         this.turistas = turistas;
     }
 
-    // ── Métodos de negócio ────────────────────────────────────────────────────
+    // ── Métodos de negócio
 
     public void listarCandidatosPendentes() {
         List<Turista> pendentes = turistas.stream()
@@ -81,7 +80,7 @@ public class MedicoService {
         return plano;
     }
 
-    // ── Getter ────────────────────────────────────────────────────────────────
+    // ── Getter
 
     public List<Turista> getTuristas() { return turistas; }
 }

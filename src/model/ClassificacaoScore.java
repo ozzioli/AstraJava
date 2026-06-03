@@ -1,8 +1,7 @@
 package model;
 
-/**
- * Representa a classificação do Space Readiness Score do turista.
- */
+ // Representa a classificação do Space Readiness Score do turista.
+
 public enum ClassificacaoScore {
 
     INAPTO,             // score < 40
