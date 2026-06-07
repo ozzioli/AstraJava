@@ -9,14 +9,10 @@ import service.MedicoService;
 import service.PacoteService;
 import service.ReservaService;
 import service.ScoreService;
-import util.DataUtil;
 
-import java.util.List;
 import java.util.Scanner;
 
-import static util.DataUtil.getDataAtual;
-
- // Menu principal do sistema ASTRA.
+// Menu principal do sistema ASTRA.
  // Responsável pela tela de login e redirecionamento para o painel correto.
 
 public class MenuPrincipal {

@@ -3,12 +3,6 @@ package model;
 import abstracts.UsuarioBase;
 import interfaces.Avaliavel;
 import interfaces.Notificavel;
-import service.AutenticacaoService;
-import service.ScoreService;
-import util.DataUtil;
-import util.Formatador;
-
-import java.util.Scanner;
 
 // Representa um turista espacial no sistema ASTRA.
  // Estende UsuarioBase e implementa Avaliavel e Notificavel.

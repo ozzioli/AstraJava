@@ -1,11 +1,8 @@
 package service;
 
-import model.Operadora;
 import model.PacoteEspacial;
-import model.Turista;
 
 import java.util.List;
-import java.util.Scanner;
 
 // Service responsável pela gestão do catálogo de pacotes espaciais.
 

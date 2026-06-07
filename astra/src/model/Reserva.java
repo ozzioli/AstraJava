@@ -1,9 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
- // Representa a reserva de um turista em um pacote espacial.
+// Representa a reserva de um turista em um pacote espacial.
 
 public class Reserva {
 

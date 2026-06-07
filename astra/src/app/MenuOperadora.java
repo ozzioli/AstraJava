@@ -2,11 +2,9 @@ package app;
 
 import model.Operadora;
 import model.PacoteEspacial;
-import model.Turista;
 import service.PacoteService;
 import service.ReservaService;
 
-import java.util.List;
 import java.util.Scanner;
 
  // Menu do painel da operadora espacial.

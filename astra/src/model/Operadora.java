@@ -3,7 +3,6 @@ package model;
 import abstracts.UsuarioBase;
 import util.Formatador;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package app;
 
-import abstracts.UsuarioBase;
 import model.*;
 import service.MedicoService;
 import service.PacoteService;
@@ -9,8 +8,6 @@ import service.ScoreService;
 import util.DataUtil;
 import util.Formatador;
 
-import java.awt.*;
-import java.util.List;
 import java.util.Scanner;
 
  // Menu do painel do turista.

@@ -2,11 +2,8 @@ package model;
 
 import interfaces.Reservavel;
 import service.PacoteService;
-import util.DataUtil;
 
-import java.util.Scanner;
-
- // Representa um pacote de viagem espacial disponível no catálogo.
+// Representa um pacote de viagem espacial disponível no catálogo.
  // Implementa Reservavel para gerenciar reservas e cancelamentos.
 
 public class PacoteEspacial implements Reservavel {

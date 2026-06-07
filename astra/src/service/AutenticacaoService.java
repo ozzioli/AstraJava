@@ -1,7 +1,6 @@
 package service;
 
 import abstracts.UsuarioBase;
-import app.MenuTurista;
 import model.Medico;
 import model.Operadora;
 import model.Turista;
