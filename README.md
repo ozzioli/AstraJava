@@ -59,12 +59,12 @@ java -cp out app.Main
 
 ### Credenciais de teste (dados pré-carregados)
 
-| Perfil | Email | Senha |
-|--------|-------|-------|
-| Turista | `carlos@email.com` | `senha123` |
-| Turista | `ana@email.com` | `senha123` |
-| Médico | `aline@clinica.com` | `senha123` |
-| Operadora | `contato@spacex.com` | `senha123` |
+| Perfil | Nome | Email | Senha |
+|--------|------|-------|-------|
+| Turista | Carlos Mendonça | `teste` | `123` |
+| Turista | Ana Lima | `ana@email.com` | `senha123` |
+| Médico | Dra. Aline Ferreira | `aline@clinica.com` | `senha123` |
+| Operadora | SpaceX Tourism | `spacex` | `123` |
 
 ---
 
