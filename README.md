@@ -103,7 +103,7 @@ src/
 │   └── Notificavel.java        # Contrato: receberNotificacao(String)
 ├── service/
 │   ├── ScoreService.java       # Cálculo do Space Readiness Score (sobrecarga)
-│   ├── ReservaService.java     # Reservas, cancelamentos e política de reembolso
+│   ├── ReservaService.java     # Reservas, cancelamentos
 │   ├── MedicoService.java      # Avaliações médicas e geração de plano
 │   ├── PacoteService.java      # Catálogo de pacotes espaciais
 │   └── AutenticacaoService.java# Login e identificação de perfil
@@ -133,7 +133,7 @@ Subclasse de `UsuarioBase`. Gerencia uma lista de `PacoteEspacial`. Métodos par
 Demonstra **sobrecarga de métodos**: `calcularScore()` possui três assinaturas — recebe `int[]` com respostas brutas, três `double` com sub-scores separados, ou um objeto `AvaliacaoAptidao` completo. Aplica pesos por categoria (Físico 40% | Cardiovascular 35% | Psicológico 25%).
 
 ### `ReservaService` — `service/`
-Gerencia reservas com validação de regras de negócio: status APROVADO obrigatório, antecedência mínima de 180 dias e disponibilidade de vagas. Calcula reembolso no cancelamento: >180 dias = total | 90–180 dias = 50% | <90 dias = sem reembolso.
+Gerencia reservas com validação de regras de negócio: status APROVADO obrigatório, antecedência mínima de 180 dias e disponibilidade de vagas.
 
 ### `AvaliacaoAptidao` — `model/`
 Armazena as respostas do questionário divididas em três categorias e os sub-scores calculados. O campo `scoreTotal` e `classificacao` são preenchidos pelo `ScoreService` após o questionário.
