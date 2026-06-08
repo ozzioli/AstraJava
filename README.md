@@ -16,6 +16,12 @@
 
 ---
 
+## Diagrama de classes
+
+![Diagrama UML](https://i.ibb.co/s9517T0j/t-Lb-RR-F65-Nv-VOFy3i-Nsed-AMDR8-DDWM1-XX9-Oe-H8-Kjgw-BNBq-LHZCYn-Tng-A8mo7oc-Mp-GDu2v-Bdv-HVj-F-ajwvigva.png)
+
+---
+
 ## Descrição do Projeto
 
 A **ASTRA** é uma aplicação Java que centraliza toda a jornada do turista espacial em um único sistema. O projeto simula uma plataforma real de turismo espacial conectando três tipos de usuários — turistas, médicos e operadoras — em um fluxo estruturado de avaliação, preparação e reserva de viagens.
